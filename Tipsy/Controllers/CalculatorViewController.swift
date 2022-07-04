@@ -15,16 +15,41 @@ class CalculatorViewController: UIViewController {
     @IBOutlet var twentyPctBtn: UIButton!
     @IBOutlet var splitNumberLbl: UILabel!
     
+    var tipBrain = TipBrain()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
+ 
+    
     @IBAction func tipChanged(_ sender: UIButton) {
+        buttonHighlight(sender)
     }
-    @IBAction func stepperValueChanged(_ sender: Any) {
+    @IBAction func stepperValueChanged(_ sender: UIStepper) {
+        splitNumberLbl.text = "\(Int(sender.value).description)"
     }
-    @IBAction func CalculatePressed(_ sender: Any) {
+    @IBAction func CalculatePressed(_ sender: UIButton) {
+        
+    }
+    
+    fileprivate func buttonHighlight(_ sender: UIButton) {
+        if sender.currentTitle == "0%"{
+            zeroPctBtn.isSelected = true
+            tenPctBtn.isSelected = false
+            twentyPctBtn.isSelected = false
+        }
+        else if sender.currentTitle == "10%" {
+            zeroPctBtn.isSelected = false
+            tenPctBtn.isSelected = true
+            twentyPctBtn.isSelected = false
+        }
+        else {
+            zeroPctBtn.isSelected = false
+            tenPctBtn.isSelected = false
+            twentyPctBtn.isSelected = true
+        }
     }
     
 }

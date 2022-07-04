@@ -9,7 +9,9 @@
 import UIKit
 
 class ResultsViewController: UIViewController {
-
+    @IBOutlet var totalPerPerson: UILabel!
+    
+    @IBOutlet var settingsLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,6 +19,9 @@ class ResultsViewController: UIViewController {
     }
     
 
+    @IBAction func recalculatePressed(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
     /*
     // MARK: - Navigation
 
